@@ -176,3 +176,78 @@ list.add(3);
 
 list.size() //=> 3
 ```
+
+## Best Practices
+
+### Capacity Management
+- Setting a large enough initial capacity when creating an `ArrayList` to avoid frequent resizing and copying of the internal array. Resizing and copying are expensive operations that can affect the performace and memory usage of the `ArrayList`. The default capacity is 10, but you can specify a different value using the constructor that takes an int parameter.
+
+```java
+ArrayList<Integer> numbers = new ArrayList<>(100); // Create a new ArrayList with an initial capacity of 100
+```
+
+- Using the `ensureCapacity()` method to increase the capacity of the internal array before adding a large number of elements to the `ArrayList`. This can prevent multiple resizing and copying operations and improve the performance of the `ArrayList`. The `ensureCapacity()` method takes an int parameter that specifies the minimum desired capacity of the internal array.
+
+```java
+numbers.ensureCapacity(200); // Ensure that the internal array can hold at least 200 elements
+
+for(int i = 0; i < 100; i++) {
+    numbers.add(i);
+}
+```
+
+- Avoiding unnecessary boxing and unboxing of primitive types when using an `ArrayList`. Boxing and unboxing are conversions between primitive types (such as `int`, `double` or `boolean`) and their corresponding wrapper classes (such as `Integer`, `Double` or `Boolean`). Boxing and unboxing can cause performance overhead and memory consumption when working with an `ArrayList`. To avoid this, you can use specialized classes that implement the `List` interface for primitive types, such as `IntArrayList`, `DoubleArrayList`, or `BooleanArrayList`. These classes are provided by third-party libraries, such as [Apache Commons Primitives](https://commons.apache.org/dormant/commons-primitives/).
+
+```java
+import org.apache.commons.collections.primitives.IntList;
+import org.apache.commons.collections.primitives.ArrayIntList;
+
+// Create an IntList using Apache Commons Primitives
+IntList numbers = new ArrayIntList();
+
+// Add a primitive int to the IntList
+numbers.add(10);
+
+// Get a primitive int from the IntList
+int first = numbers.get(0); //=> 10
+```
+
+### Usage of ArrayList
+
+- Use the interface type `List<E>` when declaring an array list, rather than the implementation type `ArrayList<E>`. This makes your code more flexible and adaptable to changes.
+
+Instead of writing:
+```java
+ArrayList<String> names = new ArrayList<String>();
+```
+
+You should write:
+```java
+List<String> names = new ArrayList<String>();
+```
+
+- Use the generic type parameter `<E>` to specify the type of elements that the array list can hold. This makes your code more type-safe and avoids unnecessary casting and runtime errors. For example, instead of writing:
+```java
+List names = new ArrayList(); // Raw type, not recommended
+
+names.Add("Alice");
+names.add(10); // This will compile, but will throw a ClassCastException at runtime
+```
+
+You should write:
+```java
+List<String> names = new ArrayList<String>(); // Generic type, recommended
+
+names.Add("Alice");
+names.Add(10); // This will not compile, as 10 is not a String
+```
+
+- Use the diamond operator `<>` when creating an array list in Java 7 or later. This allows the compiler to infer the type parameter from the context and reduces code verbosity. For example, instead of writing:
+```java
+List<String> names = new ArrayList<String>();
+```
+
+You can write:
+```java
+List<String> names = new ArrayList<>();
+```
