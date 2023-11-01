@@ -221,4 +221,11 @@ The data structure used to hold the buckets or slots where key-value pairs are a
 In a `HashMap`, a bucket refers to an individual storage location within the internal array where key-value pairs are stored. The `HashMap` uses these buckets to organize and manage its key-value pairs efficiently.
 
 Here's how it works:
-1. When you add a key-value pair to a `HashMap`, the `HashMap`
+1. When you add a key-value pair to a `HashMap`, the `HashMap` calculates a hash code for the key. This hash code is used to determine which bucket the key-value pair should be placed into.
+2. The hash code is then further processed to determine the specific index within the internal array where the pair should be stored. This process involves taking the hash code modulo the current capacity of the `HashMap` to map it to an array index.
+3. If there are no other key-value pairs already stored in the same bucket (i.e., no collision), the key-value pair is simply added to the bucket.
+4. If there is a collision (i.e., multiple key-va6lue pairs map to the same bucket due to the same hash code or a hash code collision), a linked list, or in more recent Java versions, a self-balancing tree is used to store these pairs within the same bucket. This linked list or tree allows for multiple key-value pairs to coexist within the same bucket.
+
+### What is the load factor of a HashMap?
+
+In a `HashMap`, the load factor is used to decide when the internal array needs to be expanded. The load factor is defined as the ratio of the numbers of stored elements to the number of buckets. When the load factor exceeds a certain threshlod, it triggers a process called "rehashing", which involves doubling the capacity of the `HashMap` and redistributing the existing key-value pairs into the new, larger set of buckets.
