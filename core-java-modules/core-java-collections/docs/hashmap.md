@@ -3,6 +3,33 @@ A HashMap in Java is a data structure that allows us to stroe and retrieve key-v
 
 A hashmap uses a hash function to map keys to indices in an array, where each index can store a linked list of nodes that contain the key and the value. This way, a hashmap can handle collisions, which occur when two different keys have the same hash value. 
 
+## Table of Contents
+
+- [HashMap in Java](#hashmap-in-java)
+  - [Table of Contents](#table-of-contents)
+  - [Initializing a HashMap](#initializing-a-hashmap)
+    - [Default No-Argument Constructor](#default-no-argument-constructor)
+    - [Initial Capacity Accepting Constructor](#initial-capacity-accepting-constructor)
+    - [Initial Capacity and Load Factor Accepting Constructor](#initial-capacity-and-load-factor-accepting-constructor)
+    - [Map Accepting Constructor](#map-accepting-constructor)
+  - [Java 8 and Java 9 Initialization Methods](#java-8-and-java-9-initialization-methods)
+    - [Using Collectors.toMap()](#using-collectorstomap)
+    - [Using a Stream of `Map.Entry`](#using-a-stream-of-mapentry)
+    - [Initializing an Immutable Map](#initializing-an-immutable-map)
+    - [Using `Map.of()`](#using-mapof)
+    - [Using `Map.ofEntries()`](#using-mapofentries)
+  - [Basic HashMap Operations](#basic-hashmap-operations)
+    - [Adding elements in the HashMap](#adding-elements-in-the-hashmap)
+    - [Access Elements in the HashMap](#access-elements-in-the-hashmap)
+    - [Clearing a HashMap](#clearing-a-hashmap)
+    - [Removing Elements from the HashMap](#removing-elements-from-the-hashmap)
+    - [Checking for keys and values](#checking-for-keys-and-values)
+  - [HashMap Internals](#hashmap-internals)
+    - [What the internal hash bucket array?](#what-the-internal-hash-bucket-array)
+    - [What is a bucket in HashMap?](#what-is-a-bucket-in-hashmap)
+    - [What is the load factor of a HashMap?](#what-is-the-load-factor-of-a-hashmap)
+
+
 ## Initializing a HashMap
 
 Java `HashMap` provides four constructors.

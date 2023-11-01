@@ -9,6 +9,26 @@ Here are some key points about java streams and how they are different from LINQ
 - Java streams are **pipelined**, meaning that the elements of the stream are processed one by one, instead of batches. This allows for better performance and memory efficiency, as well as avoiding intermediate collections. In contrast, LINQ queries are **composed**, meaning that they create intermediate collections for each operation and then combine them at the end.
 - Java streams are **not reusable**, meaning that once a terminal operation is performed on a stream, the stream is considered consumed and cannot be used again. If we need to reuse a stream, we have to create a new one from the source. In contrast, LINQ queries are **reusable**, meaning that we can iterate over an `IEnumerable` multiple times, as long as the source does not change.
 
+## Table of Contents
+- [Java Streams](#java-streams)
+  - [Table of Contents](#table-of-contents)
+  - [Stream Creation](#stream-creation)
+    - [Empty Streams](#empty-streams)
+    - [Collection Streams](#collection-streams)
+    - [Array Streams](#array-streams)
+    - [Stream Builders](#stream-builders)
+    - [Stream Generation](#stream-generation)
+  - [Referencing a Stream](#referencing-a-stream)
+  - [Intermediate Operations](#intermediate-operations)
+    - [Filter (`filter()`)](#filter-filter)
+    - [Map (`map()`)](#map-map)
+    - [FlatMap (`flatMap()`)](#flatmap-flatmap)
+    - [Distinct (`distinct()`)](#distinct-distinct)
+    - [Sorted (`sorted()`)](#sorted-sorted)
+    - [Peek (`peek()`)](#peek-peek)
+    - [Limit (`limit()`) and Skip (`skip()`)](#limit-limit-and-skip-skip)
+
+
 ## Stream Creation
 There are many options for creating a stream instance from various sources. Once generated, the instance will not modify its source, allowing multiple instances to be created from a single source.
 

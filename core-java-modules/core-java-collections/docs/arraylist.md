@@ -3,6 +3,25 @@ In Java, an array list is a data structure that allows you to store and manage a
 
 In Java, an array list is an object of the `ArrayList` class, which implements the `List` interface. The `List` interface is a subinterface of the `Collection` interface, which describes how all collections in Java behave. The `ArrayList` class provides many methods to conduct various actions on the elements, including adding, removing, accessing, sorting, searching, reversing, and more. To traverse the elements of an array list, you may either use the extended for loop or the iterator.
 
+## Table of Contents
+- [Array List in Java](#array-list-in-java)
+  - [Table of Contents](#table-of-contents)
+  - [Initializing an ArrayList](#initializing-an-arraylist)
+    - [Default No-Arguments Constructor](#default-no-arguments-constructor)
+    - [Initial Capacity Accepting Constructor](#initial-capacity-accepting-constructor)
+    - [Collection Accepting Constructor](#collection-accepting-constructor)
+    - [What is the difference between the default constructor and the constructor with initial capacity?](#what-is-the-difference-between-the-default-constructor-and-the-constructor-with-initial-capacity)
+  - [Basic ArrayList Operations](#basic-arraylist-operations)
+    - [Adding elements to the ArrayList](#adding-elements-to-the-arraylist)
+  - [Accessing Elements in the ArrayList](#accessing-elements-in-the-arraylist)
+  - [Setting Elements in the ArrayList](#setting-elements-in-the-arraylist)
+  - [Removing Elements in the ArrayList](#removing-elements-in-the-arraylist)
+  - [Checking if an element exists in the ArrayList](#checking-if-an-element-exists-in-the-arraylist)
+  - [Getting the size of the ArrayList](#getting-the-size-of-the-arraylist)
+  - [Best Practices](#best-practices)
+    - [Capacity Management](#capacity-management)
+    - [Usage of ArrayList](#usage-of-arraylist)
+
 ## Initializing an ArrayList
 
 The `ArrayList` is a generic class, so we can parameterize it with any type we want, and the compiler will ensure type safety. Also it is a good practice to use the generic `List` interface as the variable type, since it decouples it from a particular implementation.
